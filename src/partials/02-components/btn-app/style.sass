@@ -1,0 +1,24 @@
+#scroll_top
+    display: none
+    position: fixed
+    width: 46px
+    height: 46px
+    bottom: 70px
+    right: 30px
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='8' viewBox='0 0 14 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 7L7 1L13 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e ")
+    background-repeat: no-repeat
+    background-position: center
+
+    background-color: #86B0D5
+    border-radius: 5px
+    border: 1px solid rgba(255, 255, 255, 0.4)
+    z-index: 100
+    transition: background-color .3s
+    @media (max-width: 575px)
+        right: 20px
+    @media (max-width: 390px)
+        right: 10px
+
+    @media (hover: hover)
+        &:hover
+            background-color: #1F80D5

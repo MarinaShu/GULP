@@ -1,0 +1,58 @@
+.tooltiper
+    position: relative
+    // display: inline-block
+    color: tomato
+    perspective: 600px
+    transform-style: preserve-3d
+
+    & .tooltip
+        position: absolute
+        background: #FFFFFF
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05)
+        font-family: var(--font)
+        font-style: normal
+        font-weight: 400
+        font-size: 12px
+        line-height: 14px
+        padding: 4px 10px
+        border-radius: 20px
+        width: 131px
+
+        color: #878787
+
+        display: block
+        top: 0
+        // left: 0
+        right: 0
+        transform: rotateX(90deg) translateZ(0px)
+        opacity: 0
+        transition: transform 0.4s cubic-bezier(0.64, 0.57, 0.67, 1.53), opacity 0.1s ease-out 0.1s
+
+    &.active .tooltip
+        transform: rotateX(0) translateZ(20px)
+        opacity: 1
+        transition: transform 0.4s cubic-bezier(0.64, 0.57, 0.67, 1.53), opacity 0.1s ease-out
+
+    & .tooltip:after
+        content: ""
+        position: absolute
+        // left: 20px
+        left: 50%
+        bottom: -7px
+        height: 0
+        border-style: solid
+        border-width: 7px 7px 0 7px
+        border-color: #FFFFFF transparent transparent transparent
+    &::before
+        display: none
+        content: ''
+        position: absolute
+        top: 14px
+        right: 29px
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='4' height='16' viewBox='0 0 4 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.266602 14.0652C0.266602 13.1089 1.0427 12.332 2.00002 12.332C2.95734 12.332 3.73344 13.1089 3.73344 14.0652C3.73344 15.0225 2.95734 15.7986 2.00002 15.7986C1.0427 15.7986 0.266602 15.0225 0.266602 14.0652Z' fill='%23F16060'/%3e%3cpath d='M2.93858 9.73563C2.8979 10.2238 2.48984 10.5992 2.00002 10.5992C1.5102 10.5992 1.10215 10.2238 1.06146 9.73563L0.410583 1.92665C0.333076 0.996752 1.0669 0.199219 2.00002 0.199219C2.93314 0.199219 3.66697 0.996753 3.58946 1.92665L2.93858 9.73563Z' fill='%23F16060'/%3e%3c/svg%3e ")
+        background-repeat: no-repeat
+        width: 4px
+        height: 16px
+        cursor: pointer
+    &.active::before
+        display: block

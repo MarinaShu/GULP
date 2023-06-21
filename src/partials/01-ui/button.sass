@@ -1,0 +1,82 @@
+.btn
+	display: flex
+	align-items: center
+	justify-content: center
+	width: 100%
+
+	background-color: #FCCF2B
+	border-radius: 5px
+
+	font-family: var(--font)
+	font-weight: 600
+	font-size: 15px
+	line-height: 14px
+	letter-spacing: 0.01em
+	color: #49401F
+
+	height: 50px
+	padding-left: 14px
+	padding-right: 14px
+
+	white-space: nowrap
+	transition: background-color .3s, color .3s
+	overflow: hidden
+
+	*
+		font-family: var(--font)
+		font-weight: 600
+		font-size: 15px
+		line-height: 14px
+		letter-spacing: 0.01em
+
+	@media (hover: hover)
+		&:hover
+			background-color: #3B506B
+			color: #fff
+
+	&-close
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L0.292893 12.2929C-0.0976315 12.6834 -0.0976315 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893Z' fill='%23BEB7E7'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L13.7071 12.2929C14.0976 12.6834 14.0976 13.3166 13.7071 13.7071C13.3166 14.0976 12.6834 14.0976 12.2929 13.7071L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z' fill='%23BEB7E7'/%3e%3c/svg%3e")
+		width: 38px
+		height: 38px
+		background-repeat: no-repeat
+		background-position: center
+		background-color: #F7F5FF
+		border-radius: 50%
+		cursor: pointer
+		transition: background-color .3s
+		@media (hover: hover)
+			&:hover
+				background-color: inherit
+	&-border
+		width: 100%
+		height: 54px
+
+		font-family: var(--font)
+		font-style: normal
+		font-weight: 600
+		font-size: 16px
+		line-height: 18px
+		text-align: center
+
+		color: #A4A4A4
+		cursor: pointer
+
+		display: flex
+		align-items: center
+		justify-content: center
+
+		transition: color .3s
+		@media (hover: hover)
+			&:hover
+				color: #4C4C4C
+
+.btn-line
+	font-family: var(--font)
+	font-weight: 600
+	font-size: 14px
+	line-height: 16px
+	text-transform: uppercase
+
+	color: #1F80D5
+	cursor: pointer
+	@include line ($width: 100%, $background: rgba(31, 128, 213, 0.8), $bottom: 2px)

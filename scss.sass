@@ -1,0 +1,314 @@
+flex-basis: определяет начальный размер flex-элемента
+flex-shrink: определяет, как будет уменьшаться относительно других
+flex-grow: определяет, как будет увеличиваться относительно других
+=mixin
+	user-select: none // - запретить выделение
+	pointer-events: none // - запретить клик
+//? Размер картинки 4*3
+=mixin
+	width: 40vw
+	height: calc( 40vw * 0.667 )
+
+//? Размер картинки 3*4
+=mixin
+	width: 40vw
+	height: calc( 40vw * 1.375 )
+
+.sticky
+	position: sticky
+	position: -webkit-sticky
+	top: 50px
+
+// //? hover Подчеркивание
+=mixin
+	position: relative
+	&:after
+		content: ""
+		display: block
+		position: absolute
+		bottom: -3px
+		left: 0
+		height: 1px
+		background-color: rgba(92, 119, 98, 0.7)
+		width: 0
+		transition: width 0.3s ease-out
+@media (min-width: 992px)
+	.header-catalog__nav:hover
+		a:hover:after,
+		a:focus:after
+			width: 100%
+
+//? Подчеркнутый элемент
+@mixin line ($width: 100%, $background: $accent)
+	position: relative
+	&:after
+		content: ""
+		display: block
+		position: absolute
+		bottom: -3px
+		left: 0
+		height: 1px
+		background: $background
+		width: $width
+		transition: width 0.3s ease
+	@media (hover: hover)
+		&:hover
+			&:hover:after,
+			&:focus:after
+				@if ( $width == 0)
+					width: 100%
+				@else
+					width: 0
+
+//? Вставляем картинку псевдоэлементом position
+
+=mixin
+	position: relative
+	&::before
+		display: block
+		content: ""
+		position: absolute
+		bottom: 10px
+		left: 10px
+		width: 280 px
+		height: 160 px
+		background: url(@img/icons/arrow-left.svg) no-repeat
+
+//? Вставляем картинку псевдоэлементом перед объектом
+=mixin
+	display: flex
+	align-items: center
+	gap: 10px
+	&::before
+		flex: 1 1 auto
+		display: block
+		content: " ₽"
+		width: 15px
+		height: 15px
+		background: url(@img/icons/sprite.svg) no-repeat
+		background-size: 15px
+		background-size: contain
+
+//? Адаптивная картинкаz
+=mixin
+	&_img
+		width: 360px
+		height: 480px
+
+		border-radius: 5px
+
+		overflow: hidden
+		display: block
+		position: relative
+		& img
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			object-fit: cover
+
+//? Элементы
+=mixin
+	&:not(:nth-child(1))
+		max-width: calc( 80px + 309px )
+	&:nth-child(1)
+		max-width: calc( 80px + 309px )
+	&:nth-child(2)
+		max-width: calc( 80px + 238px )
+	&:nth-child(3)
+		flex: 0 0 auto
+	&:nth-child(2n+1) //нечётными
+	&:nth-child(2n) //чётными
+		flex: 0 0 auto
+	&:last-child
+		display: none
+	&:not(:last-child)
+
+@media (max-width: calc(24px + 1296px + 24px))
+@media (max-width: 992px)
+@media (max-width: 575px)
+@media (max-width: 450px)
+@media (max-width: 360px)
+@media (max-aspect-ratio: 2/3) // по горизонтали / по вертикали
+@media (hover: hover)
+	&:hover
+@media (min-width: 600px) and (hover: hover)
+
+@media (orientation: landscape) {
+  .cover { background: url(bg-l.png) no-repeat; }
+}
+
+@media (orientation: portrait) {
+  .cover { background: url(bg-p.png) no-repeat; }
+}
+
+
+	transition: background 0.4s ease, color 0.4s ease
+	transition: opacity 0.4s ease
+	mix-blend-mode: multiply
+	opacity: 0
+	visibility: hidden
+	opacity: 1
+	visibility: visible
+
+sans-serif
+no-repeat
+
+	background-repeat: no-repeat
+	background-position: center
+
+// display: grid
+// grid-auto-flow: row //выстраивает по вертикале
+// grid-template-columns: 1fr
+// grid-template-rows: auto 1fr
+
+@media (max-width: calc(1076px + 80px + 80px + 40px))
+	@media (orientation: landscape)
+		max-width: calc(100vw - (80px + 80px + 40px))
+		height: calc((100vw - (80px + 80px + 40px)) / 1.4)
+	@media (orientation: portrait)
+		width: calc(100vw - 300px)
+		height: calc(100vh - 300px)
+
+
+@media (hover: hover)
+	&:hover
+		background: linear-gradient(90deg, #6457B0 0%, #9757B0 100%)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+		background-clip: text
+		text-fill-color: transparent
+
+
+// <!-- <strong>Это тег жирный шрифт</strong> -->
+
+ul li
+		list-style-type: disc
+		list-style-position: inside
+		&::marker
+            color: #A594E3
+
+
+//обрезать контент
+
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+
+//подчеркивание
+
+text-decoration-line: underline; /* обычное подчёркивание */
+text-decoration-line: line-through; /* текст перечёркнут */
+text-decoration-line: overline; /* подчёркивание над текстом */
+text-decoration-line: underline line-through; // В этом случае у текста будет подчёркивание и зачёркивание.
+text-decoration: underline dotted red;
+text-decoration-color: red;
+text-decoration-thickness: 5px; // задаёт толщину линии.
+text-underline-offset: 3px; /* Смещаем подчёркивание на 3 пикселей вниз */
+
+
+cursor: context-menu
+
+
+
+Ширина колонок:
+	column-width: auto;
+	column-width: 100px;
+	column-width: 10em;
+	column-width: 3.3vw;
+	column-width: inherit;
+	column-width: initial;
+Количество колонок:
+	column-count: auto;
+	column-count: 2;
+	column-count: inherit;
+	column-count: initial;
+Установка колонок с помощью одного свойства columns
+	columns: 12em;      //* column-width: 12em; column-count: auto */
+	columns: auto 12em; //* column-width: 12em; column-count: auto */
+	columns: 2;         //* column-width: auto; column-count: 2 */
+	columns: 2 auto;    //* column-width: auto; column-count: 2 */
+	columns: auto;      //* column-width: auto; column-count: auto */
+	columns: auto auto; //* column-width: auto; column-count: auto */
+	columns: inherit;
+	columns: initial;
+Промежутки между колонками: свойство column-gap
+	column-gap: normal;
+	column-gap: 3px;
+	column-gap: 2.5em;
+	column-gap: 3%;
+	column-gap: inherit;
+	column-gap: initial;
+Цвет разделительной линии: свойство column-rule-color
+	column-rule-color: pink;
+	column-rule-color: #D71C3B;
+	column-rule-color: rgb(192, 56, 78);
+	column-rule-color: transparent;
+	column-rule-color: hsla(0, 100%, 50%, 0.6);
+	column-rule-color: inherit;
+	column-rule-color: initial;
+Стиль разделительной линии: свойство column-rule-style
+	column-rule-style: none;
+	column-rule-style: hidden;
+	column-rule-style: dotted;
+	column-rule-style: dashed;
+	column-rule-style: solid;
+	column-rule-style: double;
+	column-rule-style: groove;
+	column-rule-style: ridge;
+	column-rule-style: inset;
+	column-rule-style: outset;
+	column-rule-style: inherit;
+	column-rule-style: initial;
+Ширина разделительной линии: свойство column-rule-width
+	column-rule-width: thin;
+	column-rule-width: medium;
+	column-rule-width: thick;
+	column-rule-width: 1px;
+	column-rule-width: 2.5em;
+	column-rule-width: inherit;
+	column-rule-width: initial;
+Краткая запись свойств разделительной линии: свойство column-rule
+	column-rule: dotted;
+	column-rule: solid 8px;
+	column-rule: solid blue;
+	column-rule: thick inset blue;
+	column-rule: inherit;
+	column-rule: initial;
+Разрыв колонок break-before, break-after и break-inside.
+Охват колонок: свойство column-span
+	column-span: none;
+	column-span: all;
+	column-span: inherit;
+	column-span: initial;
+Заполнение колонок содержимым: свойство column-fill
+	column-fill: auto;
+	column-fill: balance;
+	column-fill: balance-all;
+	column-fill: inherit;
+	column-fill: initial;
+Переполнение
+	img {
+		display: block;    //*убираем нижний отступ под картинкой*/
+		width: 100%;       //*растягиваем изображение на всю ширину блока-контейнера*/
+	}
+Разбивка на страницы и переполнение вне многоколоночных контейнеров
+// 	Содержимое и разделительные линии, которые выходят за рамки колонок по краям многоколоночного контейнера, обрезаются в соответствии со свойством overflow.
+
+// Многоколоночный контейнер может иметь больше колонок, чем у него есть для этого места из-за ограничения высоты колонок (например, с помощью height или max-height) и явных разрывов колонок. В этом случае дополнительные колонки создаются в направлении строки, перемещаясь на следующие страницы.
+Синтаксис:
+text-transform: capitalize | lowercase | uppercase | none | inherit
+
+Значения:
+capitalize
+// Первый символ каждого слова в предложении будет заглавным. Остальные символы свой вид не меняют.
+lowercase
+// Все символы текста становятся строчными (нижний регистр).
+uppercase
+// Все символы текста становятся прописными (верхний регистр).
+none
+// Не меняет регистр символов.
+inherit
+// Наследует значение родителя.

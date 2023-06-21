@@ -1,0 +1,104 @@
+.header
+	position: fixed
+	top: 0
+	left: 0
+	background: #FFFFFF
+	box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06)
+	width: 100%
+	z-index: 10
+
+	&.active
+		.header__container
+			min-height: 60px
+
+	&__container
+		min-height: 71px
+		display: flex
+		align-items: center
+
+		transition: min-height .3s
+		@media (max-width: 992px)
+			min-height: 78px
+		@media (max-width: 575px)
+			min-height: 74px
+	.logo
+		margin-right: 31px
+		@media (max-width: 820px)
+			margin-right: 21px
+		@media (max-width: 474px)
+			width: 35px
+			height: 40px
+			margin-right: 0
+			img
+				object-fit: cover
+				object-position: left
+				padding-left: 1px
+
+	p
+		max-width: 332px
+		margin-right: 55px
+		@media (max-width: 1199px)
+			margin-right: 30px
+		@media (max-width: 1173px)
+			display: none
+	.address
+		max-width: 201px
+		background-position: center left
+
+		font-weight: 400
+		font-size: 14px
+		line-height: 18px
+		padding-left: 28px
+		color: #626262
+		@media (max-width: 690px)
+			display: none
+	.tel,
+	.mode
+		background-image: none
+		padding-left: 0
+		display: block
+	.tel
+		font-weight: 600
+		font-size: 20px
+		line-height: 23px
+		color: #31373F
+
+	&__info
+		margin-left: auto
+		margin-right: 38px-20
+		@media (max-width: 474px)
+			margin: 0 auto
+
+	.mode
+		font-weight: 400
+		font-size: 14px
+		line-height: 16px
+		text-align: right
+		color: #626262
+		margin-top: 3px
+
+	.header__btn
+		height: 46px
+		cursor: pointer
+		display: flex
+		align-items: center
+		justify-content: center
+		padding: 0 20px
+		margin-right: -20px
+		svg
+			display: none
+		@media (hover: hover)
+			&:hover
+				span:after
+					width: 0
+		@media (max-width: 820px)
+			background: #1F80D5
+			border-radius: 47px
+			width: 46px
+			flex: 0 0 auto
+			padding: 0
+			margin: 0
+			svg
+				display: block
+			span
+				display: none

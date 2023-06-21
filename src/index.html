@@ -1,0 +1,24 @@
+@@include('partials/03-modules/_global/head.html',{
+"title":"New-project",
+})
+@@include('partials/03-modules/_header/main.html')
+<main>
+	<section class="first">
+		<div class="first__container">
+			<h1>Производство <span>грузовых подъемников</span></h1>
+			<p class="subtitle">Проектирование, производство и монтаж грузовых лифтов грузоподемностью до 1 тонны</p>
+			<button class="btn js-popup" data-btn="calculation">Получить расчёт</button>
+		</div>
+	</section>
+
+	@@include('partials/03-modules/_card/main.html',{})
+	@@include('partials/03-modules/_trigger/main.html',{})
+	@@include('partials/03-modules/_form/main.html',{})
+	@@include('partials/03-modules/_contacts/main.html',{})
+	@@include('partials/02-components/btn-app/main.html',{})
+
+
+</main>
+@@include('partials/03-modules/_popup/main.html',{})
+@@include('partials/03-modules/_footer/main.html',{})
+@@include('partials/03-modules/_global/includes.html',{})

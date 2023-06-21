@@ -1,0 +1,114 @@
+@mixin line ($width: 100%, $height: 1px, $background: --accent, $bottom: -3px)
+    position: relative
+    @media (hover: none)
+        text-decoration: underline
+        text-underline-offset: 3px
+    @media (hover: hover)
+        &:after
+            content: ""
+            display: block
+            position: absolute
+            bottom: $bottom
+            left: 0
+            height: $height
+            background: $background
+            width: $width
+            transition: width 0.3s ease
+            &:hover
+                &:hover:after,
+                &:focus:after
+                    @if ( $width == 0%)
+                        width: 100%
+                    @else
+                        width: 0
+// //@include line ($width: 0%)
+
+@mixin line-el ($width: 100%, $height: 1px,  $background: --accent, $bottom: -3px)
+    position: relative
+    &:after
+        content: ""
+        display: block
+        position: absolute
+        bottom: $bottom
+        left: 0
+        height: $height
+        background: $background
+        width: $width
+        transition: width 0.3s ease
+// //@include line ($width: 0%)
+
+// //@include dots-pink ($width: 73px, $height: 168px)
+
+@mixin dots-pink ($width: 73px, $height: 168px, $top: auto, $right: auto, $left: auto, $bottom: auto)
+    &::before
+        display: block
+        content: ""
+        position: absolute
+        width: $width
+        height: $height
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 1.5C7.24234e-08 0.671573 0.671573 -7.24216e-08 1.5 0C2.32843 7.24252e-08 3 0.671573 3 1.5C3 2.32843 2.32843 3 1.5 3C0.671573 3 -7.24234e-08 2.32843 0 1.5Z' fill='%23FCCDCD'/%3e%3c/svg%3e")
+        background-position: top
+        opacity: 0.4
+
+        top: $top
+        right: $right
+        left: $left
+        bottom: $bottom
+
+// //@include dots-grey ($width: 73px, $height: 168px, $top: auto, $right: auto, $left: auto, $bottom: auto)
+@mixin dots-grey ($width: 73px, $height: 168px, $top: auto, $right: auto, $left: auto, $bottom: auto)
+    position: relative
+    &::before
+        display: block
+        content: ""
+        position: absolute
+        width: $width
+        height: $height
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='9' height='9' viewBox='0 0 9 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='1.5' cy='1.5' r='1.5' fill='%23312D3A'/%3e%3c/svg%3e")
+        background-position: top
+        top: $top
+        right: $right
+        left: $left
+        bottom: $bottom
+        z-index: 1
+
+// //@include scroll
+
+@mixin scroll ($min-height: 100vh, $max-height: 100vh, $track: #1A1B2B, $scroll: #25273A, $overflow-y: auto, $overflow-x: hidden, $width: 8px, $height: 8px )
+    overflow-y: $overflow-y
+    overflow-x: $overflow-x
+    min-height: $min-height
+    max-height: $max-height
+
+    scroll-padding-right: 2px
+
+    -webkit-text-size-adjust: none //Отключает масштабирование текста в горизонтальной ориентации.
+    -webkit-overflow-scrolling: touch
+    scrollbar-color: $scroll $track// «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin //auto | thin | none; /* толщина */
+
+    &::-webkit-scrollbar-track
+        background: $track
+    &::-webkit-scrollbar
+        -webkit-appearance: none
+        width: $width
+        height: $height
+        background: $track
+        cursor: pointer
+    &::-webkit-scrollbar-thumb
+        background: $scroll
+        border-radius: 50px
+        box-sizing: border-box
+        cursor: pointer
+    &::-webkit-scrollbar-thumb:hover, &::-webkit-scrollbar-thumb:active
+        background: darken($scroll, 10%)
+        cursor: pointer
+
+// @mixin corner-icon($name, $top-or-bottom, $left-or-right)
+//   .icon-#{$name}
+//     background-image: url("/icons/#{$name}.svg")
+//     position: absolute
+//     #{$top-or-bottom}: 0
+//     #{$left-or-right}: 0
+
+// //@include corner-icon("mail", top, left)

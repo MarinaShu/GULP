@@ -1,0 +1,194 @@
+@import '01-ui/fonts'
+@import '01-ui/normalize'
+@import '01-ui/variables'
+@import '01-ui/media-container'
+@import '01-ui/mixins'
+@import '01-ui/swiper'
+
+html
+	*
+		font-family: var(--font)
+		font-style: normal
+		background-repeat: no-repeat
+		background-position: center left
+		-webkit-appearance: none
+		-webkit-font-smoothing: antialiased
+		// font-weight: unset
+		// -webkit-text-stroke: thin
+		&::before,
+		&::after
+			background-repeat: no-repeat
+			background-position: center center
+
+@keyframes rotation
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(360deg)
+
+@mixin scroll ($border: 0, $min-height: 100vh, $max-height: 100vh, $track: $bg_white, $scroll: var(--accent), $scroll-hov: var(--accent) , $overflow-y: auto, $overflow-x: hidden, $width: 8px, $height: 8px)
+	overflow-y: $overflow-y
+	overflow-x: $overflow-x
+	min-height: $min-height
+	max-height: $max-height
+
+	scroll-padding-right: 2px
+	border: $border solid #ffffff
+	-webkit-text-size-adjust: none //Отключает масштабирование текста в горизонтальной ориентации.
+	-webkit-overflow-scrolling: touch
+	scrollbar-color: $scroll $track// «цвет ползунка» «цвет полосы скроллбара» */
+	scrollbar-width: thin //auto | thin | none; /* толщина */
+
+	&::-webkit-scrollbar-track
+		background: $track
+	&::-webkit-scrollbar
+		-webkit-appearance: none
+		width: $width
+		height: $height
+		background: $track
+		cursor: pointer
+	&::-webkit-scrollbar-thumb
+		background: $scroll
+		border-radius: 50px
+		box-sizing: border-box
+		cursor: pointer
+	&::-webkit-scrollbar-thumb:hover, &::-webkit-scrollbar-thumb:active
+		background: $scroll-hov
+		cursor: pointer
+		width: 10px
+
+@mixin line ($width: 100%, $height: 1px, $background: var(--accent), $bottom: 2px)
+	position: relative
+	@media (hover: none)
+		@if ( $width == 100%)
+			text-decoration: underline
+			text-underline-offset: $bottom
+			text-decoration-color: $background
+	@media (hover: hover)
+		&:after
+			content: ""
+			display: block
+			position: absolute
+			bottom: -$bottom
+			left: 0
+			height: $height
+			background: $background
+			width: $width
+			transition: width 0.3s ease
+		&:hover
+			&:hover:after,
+			&:focus:after
+				@if ( $width == 0%)
+					width: 100%
+				@else
+					width: 0
+
+//@include line ($width: 0%)
+//@include scroll
+
+body
+	background-color: #FAFAFA
+	@media (hover: hover)
+		&::-webkit-scrollbar
+			width: 8px
+		&::-webkit-scrollbar-track
+			background: #F1F1F1
+		&::-webkit-scrollbar-thumb
+			background: #C1C1C1
+			border-radius: 50px
+			width: 8px
+			height: 115px
+		&::-webkit-scrollbar-thumb:hover,
+		&::-webkit-scrollbar-thumb:active
+			background: #3B506B
+h1,
+h1 *
+	font-family: var(--font-ac)
+	font-weight: 700
+	font-size: 36px
+	line-height: 46px
+	@media (max-width: 575px)
+		font-size: 36px
+		line-height: 42px
+h1, h2
+	color: #31373F
+	span
+		color: #1F80D5
+p
+	font-family: var(--font)
+	font-weight: 400
+	font-size: 14px
+	line-height: 20px
+	color: #353535--font-ac
+p.subtitle
+	font-family: var(--font)
+	font-style: normal
+	font-weight: 400
+	font-size: 18px
+	line-height: 24px
+	color: #363636
+	opacity: 0.8
+	@media (max-width: 575px)
+		font-size: 16px
+		line-height: 22px
+p.subtitle
+	margin-top: 14px
+	@media (max-width: 992px)
+		margin-top: 12px
+	@media (max-width: 575px)
+		margin-top: 10px
+
+h2
+	font-family: var(--font-ac)
+	font-weight: 600
+	font-size: 38px
+	line-height: 45px
+	@media (max-width: 575px)
+		font-size: 28px
+		line-height: 33px
+	span
+		font-family: var(--font-ac)
+h3
+	font-family: var(--font-ac)
+	font-weight: 600
+	font-size: 28px
+	line-height: 33px
+	color: #31373F
+	@media (max-width: 575px)
+		font-size: 22px
+		line-height: 26px
+
+h4
+	font-family: var(--font)
+	font-weight: 600
+	font-size: 16px
+	line-height: 20px
+	color: #7797B4
+
+@import '01-ui/button'
+@import '01-ui/icons'
+@import '01-ui/line'
+@import '01-ui/checkbox'
+@import '01-ui/input/input'
+@import '02-components/slider-dots/style'
+@import '02-components/map/style'
+@import '02-components/social/style'
+@import '02-components/weblitex/style'
+@import '02-components/privacy-policy/style'
+@import '02-components/logo/style'
+@import '02-components/form/style'
+@import '02-components/btn-app/style'
+
+@import '03-modules/_header/fixedAddClassHeaderScroll'
+@import '03-modules/_header/burger'
+@import '03-modules/_header/mobile-menu'
+
+@import '03-modules/_footer/style'
+@import '03-modules/_popup/style'
+@import '03-modules/_contacts/style'
+@import '03-modules/_form/style'
+@import '03-modules/_slider/style'
+@import '03-modules/_card/style'
+@import '03-modules/_trigger/style'
+
+@import '03-modules/first/style'

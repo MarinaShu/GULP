@@ -1,0 +1,15 @@
+$(function () {
+    @@include('libs/popup.js', {})
+    @@include('libs/mail.js', {})
+    @@include('libs/captcha.js', {})
+    @@include('libs/reposition_block.js', {})
+    @@include('libs/burger.js', {})
+    @@include('libs/btnAp.js', {})
+    @@include('libs/akkardion.js', {})
+    @@include('libs/fly.js', {})
+    @@include('libs/ymaps.js', {})
+    @@include('libs/video.js', {})
+    @@include('libs/slider.js', {})
+    @@include('libs/slider-popup.js', {})
+    @@include('libs/validity_form.js', {})
+});

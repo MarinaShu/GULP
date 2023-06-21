@@ -1,0 +1,126 @@
+.map
+	position: absolute
+	width: 100%
+	height: 100%
+	display: block
+
+.map-address
+	cursor: pointer
+
+.map-nav__block
+	width: 36px
+	height: 72px
+	background: #FFFFFF
+	border-radius: 12px
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2)
+
+#zoom-in,
+#zoom-out
+	width: 36px
+	height: 36px
+	cursor: pointer
+	background-repeat: no-repeat
+	background-position: center
+	opacity: 0.7
+	transition: opacity .3s
+	@media (hover: hover)
+		&:hover
+			opacity: 1
+
+#zoom-in
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 0.992C6 0.455 6.448 0 7 0C7.556 0 8 0.444 8 0.992V6H13.008C13.545 6 14 6.448 14 7C14 7.556 13.556 8 13.008 8H8V13.008C8 13.545 7.552 14 7 14C6.444 14 6 13.556 6 13.008V8H0.992C0.455 8 0 7.552 0 7C0 6.444 0.444 6 0.992 6H6V0.992Z' fill='%23676767'/%3e%3c/svg%3e")
+
+#zoom-out
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='2' viewBox='0 0 14 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 1C0 0.734784 0.105357 0.48043 0.292893 0.292893C0.48043 0.105357 0.734784 0 1 0H13C13.2652 0 13.5196 0.105357 13.7071 0.292893C13.8946 0.48043 14 0.734784 14 1C14 1.26522 13.8946 1.51957 13.7071 1.70711C13.5196 1.89464 13.2652 2 13 2H1C0.734784 2 0.48043 1.89464 0.292893 1.70711C0.105357 1.51957 0 1.26522 0 1Z' fill='%23676767'/%3e%3c/svg%3e")
+
+.map-nav__wrapper
+	position: relative
+
+.map-nav__block
+	position: absolute
+
+.map
+	.map__modal
+		max-width: 260px
+		width: 100%
+		background: #fff
+		position: relative
+		&_title
+			display: block
+			font-family: inherit
+			font-style: normal
+			font-weight: 600
+			font-size: 14px
+			line-height: 16px
+			color: var(--accent)
+			width: 100%
+			width: 218px
+
+		&_subtitle
+			margin-top: 5px
+			display: block
+			font-family: inherit
+			font-weight: 400
+			font-size: 14px
+			line-height: 18px
+			color: #282E40
+			max-width: 200px
+		a
+			display: flex
+			gap: 5px
+			margin-top: 7px
+			align-items: center
+			font-family: inherit
+			font-weight: 400
+			font-size: 12px
+			line-height: 15px
+
+			color: #53555A
+			opacity: 0.8
+			&:before
+				flex: 0 0 auto
+				display: block
+				content: ''
+				left: 0
+				top: 0
+				width: 10px
+				height: 13px
+				background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='13' viewBox='0 0 10 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.76375 3.23558C9.71208 3.06215 9.60716 2.87735 9.52954 2.71556C8.60069 0.716444 6.57118 0 4.93245 0C2.73872 0 0.322575 1.31737 0 4.03278V4.58755C0 4.6107 0.0089098 4.81868 0.0215658 4.92271C0.202394 6.21681 1.34261 7.59215 2.19417 8.88625C3.11033 10.2727 4.06098 11.6367 5.00282 13C5.58357 12.1103 6.16224 11.2089 6.72977 10.3423C6.88444 10.0879 7.06398 9.83373 7.21883 9.59097C7.32203 9.42932 7.51919 9.26768 7.60927 9.11729C8.52539 7.61515 10 6.10141 10 4.61067V3.99826C10 3.83665 9.77634 3.27042 9.76375 3.23558ZM4.97261 6.02053C4.32777 6.02053 3.62193 5.73177 3.27354 4.93429C3.22163 4.80735 3.22582 4.55295 3.22582 4.52964V4.17142C3.22582 3.15479 4.1897 2.69247 5.02823 2.69247C6.06055 2.69247 6.85896 3.43213 6.85896 4.35664C6.85896 5.28112 6.00493 6.02053 4.97261 6.02053Z' fill='%23E2494D'/%3e%3c/svg%3e ")
+ymaps.ymaps-2-1-79-balloon__content
+				padding: 12px 18px 16px 12px
+
+#zoom-in,
+#zoom-out
+	position: relative
+#zoom-in::after,
+#zoom-out::after
+	background: rgba(59, 59, 59, 0.85)
+	border-radius: 50px
+	content: attr(data-title)
+	margin-right: 50px
+	position: absolute
+	right: 0
+	top: 5px
+	transform: translateX(-10px)
+	padding: 4px 10px 5px
+	opacity: 0
+	visibility: hidden
+
+	font-family: var(--font)
+	font-style: normal
+	font-weight: 600
+	font-size: 12px
+	line-height: 14px
+	color: #FEFEFD
+
+	transition: all 0.4s ease-in-out
+	z-index: 1000000
+
+#zoom-in,
+#zoom-out
+	&:hover
+		opacity: 1
+		&::after
+			transform: translateX(0)
+			opacity: 1
+			visibility: visible

@@ -1,0 +1,13 @@
+<div class="ask-social">
+	<div class="ask-social__body">
+		<button class="close"></button>
+		@@loop('item.html', 'partials/02-components/01-standart/ask-social/data.json')
+	</div>
+	<button class="ask-social__btn">
+		<div>
+			@@loop('btn.html', 'partials/02-components/01-standart/ask-social/data.json')
+			<p>Мне только спросить</p>
+		</div>
+	</button>
+	<div class="ask-social__overlay"></div>
+</div>

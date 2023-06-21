@@ -1,0 +1,74 @@
+.wrapper-captcha
+    margin-top: 27px
+    margin-bottom: 28px
+    .captcha-text
+        display: block
+        font-family: inherit
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 17px
+        color: #3A3B3A
+    .captcha__image-reload
+        display: flex
+        align-items: center
+        height: 80px
+        margin-top: 10px
+    .captcha__image
+        width: 240px
+        height: 100%
+    .captcha__refresh
+        display: block
+        width: 42px
+        height: 100%
+        background: url(../img/icons/refresh.svg) no-repeat center center
+    .attempt
+        margin-top: 4px
+        font-weight: 400
+        font-size: 12px
+        line-height: 15px
+        color: #3A3B3A
+        opacity: 0.6
+    .captcha__group
+        margin-top: 8px
+        font-weight: 400
+        font-size: 14px
+        line-height: 17px
+        color: #3A3B3A
+        input
+            width: 240px
+            height: 46px
+            box-sizing: border-box
+            background: #FFFFFF
+            border: 1px solid rgba(67, 128, 211, 0.2)
+            padding-left: 20px
+            text-transform: lowercase
+        input::placeholder
+            text-transform: capitalize
+    .feedback__input_btn
+        margin-top: 28px
+
+    .invalid-feedback
+        display: block
+        font-weight: 400
+        font-size: 12px
+        line-height: 15px
+        color: #E6666E
+        margin-top: 5px
+
+.feedback__input_btn.captcha
+    display: none
+.captcha-bottom, .captcha-popup, .captcha-info, .attempt
+    display: none
+
+@media (max-width: 677px)
+    .captcha-bottom
+        margin: 0 auto
+        text-align: center
+    .wrapper-captcha .captcha__image-reload
+        justify-content: center
+    .wrapper-captcha .captcha__group input
+        width: 284px
+        height: 50px
+    .wrapper-captcha .feedback__input_btn
+        margin-left: auto

@@ -1,0 +1,39 @@
+main
+    position: relative
+
+.bread-crumb
+    top: 41px
+    position: absolute
+    z-index: 99
+    @media (max-width: 992px)
+        top: 32px
+    @media (max-width: 575px)
+        top: 44px
+    @media (max-width: 390px)
+        top: 44px
+    &__item
+        font-family: var(--font)
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 15px
+        &:not(:nth-child(1))
+            &::before
+                content: ''
+                margin-right: 5px
+                margin-left: 5px
+                margin-bottom: 3px
+                display: inline-block
+                content: ""
+                width: 10px
+                height: 2px
+                background: #AD9FDC
+                border-radius: 21px
+span.bread-crumb__item
+    color: #8371C3
+a.bread-crumb__item
+    transition: color .3s
+    color: #696973
+    @media (hover: hover)
+        &:hover
+            color: #8371C3

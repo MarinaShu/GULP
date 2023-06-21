@@ -1,0 +1,79 @@
+
+.pagination
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-top: 70px
+    @media (max-width: 992px)
+        margin-top: 60px
+    .page-numbers
+        flex: 0 0 auto
+        cursor: pointer
+        width: 32px
+        height: 44px
+
+        font-family: var(--font)
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 44px
+        text-align: center
+        color: #696973
+        position: relative
+        &:after
+            content: ""
+            display: block
+            position: absolute
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+            height: 2px
+            background: rgba(198, 146, 117, 0.5)
+            width: 0
+            transition: width 0.2s ease
+        @media (hover: hover)
+            &:hover
+                &:hover:after,
+                &:focus:after
+                    width: 18px
+
+    .page-numbers.prev
+        margin-right: 32px
+        @media (max-width: 474px)
+            margin-right: 10px
+        @media (max-width: 405px)
+            display: none
+        @media (hover: hover)
+            &:hover
+                &:hover:after,
+                &:focus:after
+                    width: 0
+    .page-numbers.next
+        margin-left: 32px
+        @media (max-width: 474px)
+            margin-left: 10px
+        @media (max-width: 405px)
+            display: none
+        @media (hover: hover)
+            &:hover
+                &:hover:after,
+                &:focus:after
+                    width: 0
+    .page-numbers.prev,
+    .page-numbers.next
+        width: 44px
+        height: 44px
+
+    .page-numbers.dots
+        cursor: defolt
+        @media (hover: hover)
+            &:hover
+                opacity: .6
+
+    .page-numbers.current
+        color: #C69275
+        opacity: 1
+
+    // .prev.disabled,
+    // .next.disabled
+    //     display: none

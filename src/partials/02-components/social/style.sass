@@ -1,0 +1,42 @@
+.social
+	display: flex
+	height: 40px
+	// flex-wrap: wrap
+	a
+		position: relative
+		margin-right: 14px
+		flex: 0 0 auto
+		border-radius: 100px
+		max-width: 40px
+		max-height: 40px
+		height: 100%
+		width: 100%
+		position: relative
+		transition: background .3s
+		&.whatsapp
+			background: #43D854
+		&.viber
+			background: #7360F2
+		&.telegram
+			background: #0088CC
+
+		@media (hover: hover)
+			&:hover
+				background: #3B506B
+			// 		&.whatsapp
+			// 			svg path
+			// 				fill: #2CB56B
+			// 		&.telegram
+			// 			svg path
+			// 				fill: #59B2F2
+			// 		&.viber
+			// 			svg path
+			// 				fill: #807EC5
+		svg
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			path
+				transition: fill .3s
+				fill: #ffffff

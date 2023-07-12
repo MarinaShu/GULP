@@ -1,0 +1,23 @@
+.circle
+    position: absolute
+    width: 127px
+    height: 127px
+    border-radius: 127px
+    background: #F0DB6A
+    top: 307px
+    left: 20px
+    z-index: 100
+    // transition: top ease 1.5s
+
+.animation__block
+    position: relative
+    overflow: hidden
+
+.animation__element
+    opacity: 0
+    transform: translateY(100%)
+
+.animation__element.show
+    opacity: 1
+    transition: all 2s ease
+    transform: translateY(0)
